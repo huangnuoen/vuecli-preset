@@ -1,0 +1,40 @@
+.arrow (@deg: 0deg, @size: 8px, @thick: 1px, @col: @black-l) {
+  display: inline-block;
+  height: @size;
+  width: @size;
+  border-width: @thick @thick 0 0;
+  border-style: solid;
+  border-color: @col;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, -0.7) rotate(@deg);
+  transition: all 0.2s;
+}
+
+// 超出省略
+.ellipsis-line(@width, @line) {
+  max-width: @width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.placeholder(@color) {
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+.safe-padding-bottom(@padding) {
+  padding-bottom: calc(@padding+constant(safe-area-inset-bottom));
+  padding-bottom: calc(@padding + env(safe-area-inset-bottom));
+}
+.safe-margin-bottom(@margin) {
+  margin-bottom: calc(@margin+constant(safe-area-inset-bottom));
+  margin-bottom: calc(@margin + env(safe-area-inset-bottom));
+}
+.safe-bottom(@bottom){
+  bottom: calc(@bottom+constant(safe-area-inset-bottom));
+  bottom: calc(@bottom + env(safe-area-inset-bottom));
+}
